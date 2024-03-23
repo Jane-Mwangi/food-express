@@ -18,6 +18,8 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -26,7 +28,10 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 
 @Composable
 fun OnboardingFancyImage(
@@ -40,7 +45,7 @@ fun OnboardingFancyImage(
                     bottomEnd = 200.dp
                 )
             )
-            .fillMaxHeight(0.65F)
+            .fillMaxHeight(0.5F)
             .fillMaxSize()
             .background(color = Color.Green)
     ) {
@@ -63,9 +68,19 @@ fun TitleWithDescription(
     descriptionText: String
 ) {
     Column(modifier = Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
-        Text(text = titleText)
+        Text(
+            text = titleText, style = MaterialTheme.typography.bodyLarge.copy(
+                fontWeight = FontWeight.Bold,
+                fontSize = 24.sp
+            )
+        )
         Spacer(modifier = Modifier.height(12.dp))
-        Text(text = descriptionText, modifier = Modifier.padding(horizontal = 20.dp))
+        Text(
+            text = descriptionText, style = MaterialTheme.typography.bodySmall.copy(
+                fontWeight = FontWeight.Light,
+                fontSize = 16.sp
+            ), modifier = Modifier.padding(horizontal = 20.dp)
+        )
 
     }
 
@@ -81,6 +96,10 @@ fun ButtonWithIcon(
 
     ) {
     Button(
+        colors = ButtonDefaults.buttonColors(
+            containerColor = MaterialTheme.colorScheme.primary,
+            contentColor = MaterialTheme.colorScheme.onPrimary
+        ),
         onClick = onClick,
         shape = RoundedCornerShape(25.dp),
         contentPadding = PaddingValues(20.dp)
@@ -90,7 +109,12 @@ fun ButtonWithIcon(
             horizontalArrangement = Arrangement.Center,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Text(text = buttonText)
+            Text(
+                text = buttonText, style = MaterialTheme.typography.bodySmall.copy(
+                    fontWeight = FontWeight.Light,
+                    fontSize = 12.sp
+                )
+            )
             Spacer(modifier = Modifier.width(12.dp))
             Image(
                 painter = painterResource(id = buttonImage),
@@ -109,14 +133,30 @@ fun ButtonWitoutIcon(
 
     ) {
 
+    Row(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.Center,
+        verticalAlignment = Alignment.CenterVertically
+    ) {
         Button(
+            colors = ButtonDefaults.buttonColors(
+                containerColor = MaterialTheme.colorScheme.primary,
+                contentColor = MaterialTheme.colorScheme.onPrimary
+            ),
             onClick = onClick,
+            modifier = Modifier.fillMaxWidth(0.65F),
             shape = RoundedCornerShape(25.dp),
             contentPadding = PaddingValues(20.dp)
         ) {
-            Text(text = buttonText)
+            Text(
+                text = buttonText, style = MaterialTheme.typography.bodySmall.copy(
+                    fontWeight = FontWeight.Light,
+                    fontSize = 12.sp
+                )
+            )
         }
 
+    }
 
 
 }

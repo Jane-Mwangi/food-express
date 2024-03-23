@@ -1,5 +1,6 @@
 package ke.co.fiti.foodexpress.presentation.screens.onboardng
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -12,6 +13,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import ke.co.fiti.foodexpress.R
@@ -30,24 +32,33 @@ fun AuthOrientationScreen(
         Column(
             modifier = Modifier
                 .fillMaxHeight()
-                .verticalScroll(rememberScrollState())
+                .fillMaxWidth()
 
         ) {
             OnboardingFancyImage(image = R.drawable.chips)
-            Spacer(modifier = Modifier.height(12.dp))
-            TitleWithDescription(
-                titleText = "Food Express",
-                descriptionText = "Get the fastest delivery  for you!"
-            )
-            Spacer(modifier = Modifier.fillMaxHeight(0.35F))
-            Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center) {
-                Column {
-                    Row (Modifier.fillMaxWidth(0.65F)){
-                        ButtonWitoutIcon(buttonText = "Create Account", onClick = {})
-                    }
 
-                    Spacer(modifier = Modifier.height(24.dp))
-                    ButtonWitoutIcon(buttonText = "Login", onClick = {})
+            Column(modifier = Modifier.fillMaxHeight()) {
+                Spacer(modifier = Modifier.height(12.dp))
+                TitleWithDescription(
+                    titleText = "Food Express",
+                    descriptionText = "Get the fastest delivery  for you!"
+                )
+                Spacer(modifier = Modifier.fillMaxHeight(0.2F))
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.Center
+                ) {
+                    Column {
+                        Row(
+                            horizontalArrangement = Arrangement.Center,
+                            modifier = Modifier.fillMaxWidth()
+                        ) {
+                            ButtonWitoutIcon(buttonText = "Create Account", onClick = {})
+                        }
+
+                        Spacer(modifier = Modifier.height(24.dp))
+                        ButtonWitoutIcon(buttonText = "Login", onClick = {})
+                    }
                 }
             }
 

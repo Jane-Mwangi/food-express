@@ -81,7 +81,7 @@ fun FoodExpressNavigationGrapgh(
 
     NavHost(
         navController = mainNavController,
-        startDestination = Routes.ORIENTATION.name,
+        startDestination = Routes.ONBOARDING.name,
     ) {
         composable(
             route = Routes.LOADING.name,

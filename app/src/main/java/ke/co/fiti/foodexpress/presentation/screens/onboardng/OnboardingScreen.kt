@@ -25,16 +25,16 @@ fun OnboardingScreen(navController: NavHostController) {
         Column(
             modifier = Modifier
                 .fillMaxHeight()
-                .verticalScroll(rememberScrollState())
-
         ) {
-            OnboardingFancyImage(image = R.drawable.chicke)
-            Spacer(modifier = Modifier.height(12.dp))
+
+                OnboardingFancyImage(image = R.drawable.chicke)
+
+            Spacer(modifier = Modifier.fillMaxHeight(0.075F))
             TitleWithDescription(
                 titleText = "Are you hungry?",
                 descriptionText = "Order food and get delivery within few minutes to your door."
             )
-            Spacer(modifier = Modifier.fillMaxHeight(0.35F))
+            Spacer(modifier = Modifier.fillMaxHeight(0.4F))
             Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center) {
                 ButtonWithIcon(
                     buttonText = "Get Started",
